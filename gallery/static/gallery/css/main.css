@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: transparent !important;
+    z-index: 1 !important;
+    position: absolute;
+  
+    
+}
+
+.brand-logo{
+    color: white !important;
+}
+
+
+
+nav li a{
+    /*color:#ff7043 !important;*/
+    font-size: 15px !important;
+}
+
+.locate{
+    position: relative;
+    z-index: 0 !important;
+}
+
+.caption{
+    padding-top: 100px;
+}
+
+.card-title{
+    color: crimson !important;
+    font-size: 30px !important;
+}
+
+.placeholder{
+    color: white !important;
+}
+
+.materialboxed{
+    padding: 10px !important;
+}
+
+.slide-button{
+    border-radius: 10px;
+    background-color: transparent;
+    
+}
+
+.slide-button:hover{
+    background-color: tomato;
+}
+
+.card{
+    border-radius: 20px;
+}
+
+.card-image{
+    border-radius: 200px !important;
+}

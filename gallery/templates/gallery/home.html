@@ -1,0 +1,64 @@
+{% extends 'gallery/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section id="home" class="scrollspy">
+
+
+        <section id="cat" class="scrollspy">
+            <div class="container">
+                <div class="row">
+
+
+                    <h3 class="center">Latest Paintings</h3>
+                        {% for paint in sample %}
+                        <h1>{{ paintings.paint_name }}</h1>
+                        <div class="col m4 s12">
+                            <img class="materialboxed" width="300" src="/media/{{ paint.paint_image }}">
+                        </div>
+                        {% endfor %}
+
+
+
+
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="cat"><a name="cat"></a>
+            <div class="container-fluid">
+                <div class="row">
+                    <h3 class="center">Few Categories I do</h3>
+                    {% for category in categories|slice:":3" %}
+                        <div class="col s12 m4">
+
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="/media/{{ category.category_image }}">
+                                    <span class="card-title">{{ category.category_name }}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>I am a very simple card. I am good at containing small bits of information.
+                                        I am convenient because I require little markup to use effectively.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">This is a link</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+        </section>
+
+
+    </section>
+{% endblock %}

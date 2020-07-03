@@ -1,0 +1,29 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+
+   {% block categories %}
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <h3 class="center">Categories Available</h3>
+                    {% for c in cat %}
+                        <div class="col s12 m4">
+
+                            <div class="card hoverable">
+                                <div class="card-image">
+                                    <img src="/media/{{ c.category_image }}">
+                                    <span class="card-title">{{ c.category_name }}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>{{ c.category_description }}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="{{ c.category_slug }}">{{ c.category_name }} Paintings </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+{% endblock %}

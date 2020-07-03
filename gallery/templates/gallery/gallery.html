@@ -1,0 +1,25 @@
+{% extends 'gallery/base.html' %}
+{% load static %}
+
+{% block gallery %}
+    <div class="container">
+        <div class="row">
+        <h3 class="center">MY Paintings</h3>
+            {% for paint in paints %}
+                <div class="col m6 s12">
+                    <img class="materialboxed" style="width: 100%; height: 200px" src="{{ paint.paint_image.url }}">
+                    <div class="col m12 s12">
+                        <div class="card-panel teal" style=" border-top-left-radius: 20px; ">
+                           <h5 class="white-text">Paint Name: <span class="white-text" style="text-transform: uppercase;">{{ paint.paint_name }}</span>
+                            </h5>
+                            <p class="white-text">{{ paint.description }}</p>
+                            <span class="badge red"
+                                  style="color: white; border-radius: 20px;">{{ paint.category }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

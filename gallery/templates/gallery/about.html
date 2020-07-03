@@ -1,0 +1,56 @@
+{% extends 'gallery/base.html' %}
+{%  load static %}
+
+{% block about %}
+
+
+
+
+
+<section id="about" class="scrollspy">
+    <div class="row">
+        {% for detail in details %}
+      <h3 class="center">About Me</h3>
+      <div class="container">
+        <div class="col m4 s12 center">
+          <img src="/media/{{ detail.userImage }}" alt="" class="circle " style="height:300px; width:300px">
+        </div>
+        <div class="col m1 s12"></div>
+        <div class="col m7 s12">
+          <div class="card blue lighten-2">
+            <div class="card-content white-text">
+              <span class="card-title">{{ detail.userName }}</span>
+              <p>{{ detail.userDescription }}</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+
+      <div class="col m3"></div>
+      <div class="col m6 s12 card-panel hoverable blue-grey lighten-5 white-text">
+        <h3 class="center black-text">Write Me</h3>
+        <form action="{% url 'gallery:about' %}" method="post">
+            {% csrf_token %}
+          <label for="first_name">Name</label>
+          <input placeholder="Name" name="name" type="text" class="validate">
+          <label for="email">Email</label>
+          <input placeholder="someone@domain.com"  name="email" type="email" class="validate">
+          <label for="message">Message</label>
+          <div class="input-field">
+            <textarea name="message" class="materialize-textarea"></textarea>
+          </div>
+          <button style="margin-bottom: 20px;" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+      <div class="col m3"></div>
+    </div>
+          <h3 class="center" style="color: black"> {{ name }} you successful</h3>
+  </section>
+{% endblock %}
