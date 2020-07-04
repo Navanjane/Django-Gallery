@@ -26,6 +26,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('category/',views.cat,name='cat'),
     path('contact/',views.contact,name='contact'),
-    path('<singleSlug>', views.singleSlug, name='singleSlug')
+
+
 
 ]

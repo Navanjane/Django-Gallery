@@ -10,7 +10,6 @@ class Category(models.Model):
     category_slug = models.CharField(max_length=200,default=1)
     category_image = models.FileField(default='media/Screenshot_from_2020-06-13_19-49-07.png')
 
-
     class Meta:
         verbose_name_plural = "Categories"
 

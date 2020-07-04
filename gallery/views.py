@@ -2,13 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Paint, Category, User
 from django.core.mail import send_mail
+from .filters import Filter
 
 
-
-def singleSlug(request,singleSlug):
-    categories = [c.category_slug for c in Category.objects.all()]
-    if singleSlug in categories:
-       HttpResponse("cat")
 
 
 def home(request):
@@ -21,9 +17,8 @@ def home(request):
 
 
 def gallery(request):
-    return render(request=request,
-                  template_name="gallery/gallery.html",
-                  context={"paints": Paint.objects.all})
+    f = Filter(request.GET, queryset=Paint.objects.all())
+    return render(request, template_name='gallery/gallery.html', context={"filter": f, "p": Paint.objects.all})
 
 
 def about(request):
@@ -39,7 +34,8 @@ def cat(request):
         request=request,
         template_name="gallery/category.html",
         context={
-            "cat":Category.objects.all
+            "cat":Category.objects.all(),
+
         }
     )
 
@@ -54,3 +50,6 @@ def contact(request):
         send_mail(name,message,email,[bawanthanianuththara@gmail.com,nkindelpitiya@gmail.com],fail_silently=False)
     else:
         return HttpResponse("Not Successs")
+
+
+
